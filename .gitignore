@@ -1,0 +1,39 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Dataset — download via: python download_data.py
+data/bitext_dataset.csv
+
+# Persistent runtime state — generated on first run, contains personal data
+checkpoints/memory.db
+profiles/*.json
+
+# Assignment source files (not part of the submission codebase)
+agent_memory.ipynb
+From_AI_Model_to_AI_Agent_-_Assignment_3.pdf
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo

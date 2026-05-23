@@ -107,11 +107,21 @@ A `langgraph.json` is included, so you can open the graph visually:
 
 ```bash
 pip install -U "langgraph-cli[inmem]"
-langgraph dev
+langgraph dev --allow-blocking
 ```
 
+> **Why `--allow-blocking`?** The SQLite checkpointer opens its connection
+> synchronously during graph construction. `langgraph dev` wraps your code in
+> `blockbuster` to catch sync I/O inside its async server; the flag disables
+> that check. It only affects the dev server — the CLI, Streamlit, and MCP
+> server are all sync and unaffected.
+
 Studio loads the `agent` graph from `agent/graph.py:make_studio_graph` (a fixed
-`studio` session_id is used so checkpoints have a stable thread).
+`studio` session_id is used so checkpoints have a stable thread). The local
+server runs at `http://127.0.0.1:2024`; `langgraph dev` will open a browser to
+the Studio UI hosted at smith.langchain.com — a free LangSmith account is
+required to access that page, but no API key is needed and all execution stays
+local.
 
 ---
 
